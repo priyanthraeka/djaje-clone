@@ -6,8 +6,8 @@ import { BsCart2 } from "react-icons/bs";
 const Home = () => {
   return (
     <Card>
-      <div className="grid grid-cols-2 justify-between items-center w-full h-[650px]">
-        <div>
+      <div className="grid grid-rows-2 flex-wrap-reverse md:grid-cols-2 md:grid-rows-none justify-between items-center w-full">
+        <div className="flex justify-center items-center order-2 md:order-1">
           <Image
             src="https://djaje.com/wp-content/uploads/2021/11/IMG_1756-removebg-preview.png"
             alt="Dadar Gulung"
@@ -15,32 +15,34 @@ const Home = () => {
             height={375}
           />
         </div>
-        <div className="flex flex-col gap-4">
-          <p className="font-bold text-lg text-[#333333] font-merriweather">
-            <span className="mb-5 block">
+        <div className="flex flex-col md:items-start gap-4 order-1 md:order-2">
+          <p className="font-bold text-lg text-[#333333] font-merriweather flex flex-col justify-center items-center md:items-start md:text-start">
+            <span className="mb-5 flex">
               <Image
                 src="https://djaje.com/wp-content/uploads/2019/07/logo-leaf-new.png"
                 alt="Leaf Image"
-                width={75}
-                height={33}
+                width={95}
+                height={38}
               />
             </span>
             Kualitas Produk Terbaik
           </p>
-          <p className="font-bold text-5xl font-merriweather leading-normal text-[#333333]">
+          <h1 className="font-bold text-3xl lg:text-5xl font-merriweather lg:leading-normal text-[#333333] text-center md:text-start">
             Aneka Kue Basah dan Kue Kering di Bali
-          </p>
-          <p>
+          </h1>
+          <p className="flex justify-center items-center text-base text-center md:text-start">
             Di Djaje kami memberikan kue yang sehat dan berkualitas. Djaje
             membuat kue menggunakan bahan-bahan alami dan sehat tanpa perlu
             khawatir dengan bahan pengawet.
           </p>
-          <button className="py-3 px-6 rounded-full text-white bg-green-500 w-fit mt-20 flex justify-center items-center gap-2">
-            <span>
-              <BsCart2 size={20} />
-            </span>
-            Cek Sekarang
-          </button>
+          <div className="flex justify-center lg:justify-start">
+            <button className="py-3 px-6 rounded-full text-white bg-green-500 w-fit my-10 flex justify-center items-center gap-2 m-auto ">
+              <span>
+                <BsCart2 size={20} />
+              </span>
+              Cek Sekarang
+            </button>
+          </div>
         </div>
       </div>
     </Card>

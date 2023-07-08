@@ -5,22 +5,22 @@ import { BsEnvelope, BsFillTelephoneFill, BsPinMapFill } from "react-icons/bs";
 const Contact = () => {
   return (
     <Card>
-      <div className="flex flex-col justify-center items-center py-28 w-full">
-        <p className="font-bold text-5xl font-merriweather leading-normal text-[#333333]">
+      <div className="flex flex-col justify-center items-center w-full">
+        <h1 className="font-bold text-3xl font-merriweather leading-normal text-[#333333]">
           Kontak Kami
-        </p>
-        <div className="mt-20 flex justify-center items-center gap-10">
-          <div className="border border-slate-300 p-20 rounded-md flex flex-col justify-center items-center gap-2">
+        </h1>
+        <div className="mt-20 flex flex-col lg:flex-row justify-center items-center gap-10">
+          <div className="border border-slate-300 p-20 rounded-md w-[280px] flex flex-col justify-center items-center gap-2">
             <BsFillTelephoneFill size={25} color="#54B435" />
-            <p>081339820736</p>
+            <p className="text-base">081339820736</p>
           </div>
-          <div className="border border-slate-300 p-20 rounded-md flex flex-col justify-center items-center gap-2">
+          <div className="border border-slate-300 p-20 rounded-md w-[280px] flex flex-col justify-center items-center gap-2">
             <BsEnvelope size={25} color="#54B435" />
-            <p>djajebali@gmail.com</p>
+            <p className="text-base">djajebali@gmail.com</p>
           </div>
-          <div className="border border-slate-300 p-20 rounded-md flex flex-col justify-center items-center gap-2">
+          <div className="border border-slate-300 p-20 rounded-md w-[280px] flex flex-col justify-center items-center gap-2">
             <BsPinMapFill size={25} color="#54B435" />
-            <p>Denpasar, Bali</p>
+            <p className="text-base">Denpasar, Bali</p>
           </div>
         </div>
       </div>

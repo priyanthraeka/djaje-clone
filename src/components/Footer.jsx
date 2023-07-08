@@ -2,15 +2,14 @@ import React from "react";
 import Card from "./Card";
 import Image from "next/image";
 import Link from "next/link";
-import { navLinks } from "./Navbar";
 import { BsFacebook, BsInstagram } from "react-icons/bs";
 
 const Footer = () => {
   return (
     <>
-      <div className="h-[250px] bg-[#001524] flex justify-center items-center text-white">
+      <div className="bg-[#001524] flex justify-center items-center text-white">
         <Card>
-          <div className="flex justify-between items-center w-full">
+          <div className="flex justify-between w-full">
             <div>
               <Image
                 src="https://djaje.com/wp-content/uploads/2021/11/cropped-logoo-2-155x52.png"
@@ -19,22 +18,20 @@ const Footer = () => {
                 height={52}
               />
             </div>
-            <div>
-              <p className="text-2xl">Navigation</p>
+            <div className="hidden md:block">
+              <p className="text-lg font-bold">Navigation</p>
               <ul className="mt-5 flex flex-col gap-2 text-lg">
-                {navLinks.map((item, index) => (
-                  <Link key={index} href={item.href} className="text-[#a8a8a8]">
-                    {item.name}
-                  </Link>
-                ))}
+                <Link href="/" className="text-[#a8a8a8] text-base">
+                  Home
+                </Link>
               </ul>
             </div>
           </div>
         </Card>
       </div>
-      <div className="h-[50px] bg-[#001524] flex justify-center items-center text-white shadow-sm shadow-slate-300">
+      <div className="py-5 bg-[#001524] flex justify-center items-center text-white shadow-sm shadow-slate-300">
         <Card>
-          <div className="flex justify-between items-center w-full text-lg">
+          <div className="flex flex-col md:flex-row gap-5 md:gap-0 justify-between items-center w-full text-lg">
             <p>Copyright &copy; 2023 | Djaje</p>
             <div className="flex justify-center items-center gap-5">
               <Link

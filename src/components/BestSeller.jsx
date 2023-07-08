@@ -1,33 +1,32 @@
 import React from "react";
 import Card from "./Card";
-import { BsCart2 } from "react-icons/bs";
-import Image from "next/image";
+import { BsFillCartFill } from "react-icons/bs";
 
 const BestSeller = () => {
   return (
-    <div className="h-[500px] flex justify-center items-center">
+    <div className="flex justify-center items-center">
       <Card>
-        <div className="flex justify-around items-center w-full">
-          <div className="w-[500px]">
-            <p className="font-bold text-lg font-merriweather">Kue Basah</p>
+        <div className="flex flex-col lg:flex-row justify-center items-center w-full gap-20">
+          <div className="w-[500px] flex flex-col items-center justify-center">
+            <p className="font-bold text-3xl font-merriweather">Kue Basah</p>
             <p className="text-base font-merriweather">
               Berbagai pilihan kue basah terenak di Denpasar
             </p>
-            <button className="py-3 px-6 rounded-full text-white bg-green-500 w-fit mt-5 flex justify-center items-center gap-2">
+            <button className="py-2 px-5 rounded-full text-white bg-green-500 w-fit mt-5 flex justify-center items-center gap-2">
               <span>
-                <BsCart2 size={20} />
+                <BsFillCartFill size={18} />
               </span>
               Cek Sekarang
             </button>
           </div>
-          <div className="w-[500px]">
-            <p className="font-bold text-lg font-merriweather">Kue Kering</p>
-            <p className="text-base font-merriweather">
+          <div className="w-[500px] flex flex-col items-center justify-center">
+            <p className="font-bold text-3xl font-merriweather">Kue Kering</p>
+            <p className="text-base font-merriweather mt-2">
               Tersedia berbagai pilihan varian rasa kue kering.
             </p>
-            <button className="py-3 px-6 rounded-full text-white bg-green-500 w-fit mt-5 flex justify-center items-center gap-2">
+            <button className="py-2 px-5 rounded-full text-white bg-green-500 w-fit mt-5 flex justify-center items-center gap-2">
               <span>
-                <BsCart2 size={20} />
+                <BsFillCartFill size={18} />
               </span>
               Cek Sekarang
             </button>
