@@ -2,8 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import Card from "./Card";
-import { BsBag } from "react-icons/bs";
+import { usePathname } from "next/navigation";
 import { HiMenuAlt1, HiOutlineX } from "react-icons/hi";
 
 export const navLinks = [
@@ -26,6 +25,7 @@ export const navLinks = [
 ];
 
 const Navbar = () => {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -54,34 +54,23 @@ const Navbar = () => {
           className={`flex flex-col justify-start items-start gap-5 p-10 bg-[#f0f0f0] left-0 right-0 absolute z-10 text-black md:flex md:flex-row md:justify-end md:items-center md:z-auto md:gap-5 md:p-0 md:static md:bg-white md:w-full
           ${isOpen ? "top-[104px]" : "top-[-999999px]"}`}
         >
-          <Link
-            className="text-[#333333] hover:text-[#54B435] text-base"
-            href="/"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            Home
-          </Link>
-          <Link
-            className="text-[#333333] hover:text-[#54B435] text-base"
-            href="/products"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            All Products
-          </Link>
-          <Link
-            className="text-[#333333] hover:text-[#54B435] text-base"
-            href="/about"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            About
-          </Link>
-          <Link
-            className="text-[#333333] hover:text-[#54B435] text-base"
-            href="/contact"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            Contact
-          </Link>
+          {navLinks.map((link, index) => {
+            const isActive = pathname.endsWith(link.href);
+            return (
+              <Link
+                key={index}
+                className={
+                  isActive
+                    ? "text-green-500"
+                    : "text-[#333333]" + " text-base hover:text-gray-500"
+                }
+                href={link.href}
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
         </ul>
       </div>
     </nav>

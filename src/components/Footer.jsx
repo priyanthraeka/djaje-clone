@@ -1,8 +1,10 @@
+"use client";
 import React from "react";
 import Card from "./Card";
 import Image from "next/image";
 import Link from "next/link";
 import { BsFacebook, BsInstagram } from "react-icons/bs";
+import { navLinks } from "./Navbar";
 
 const Footer = () => {
   return (
@@ -19,11 +21,19 @@ const Footer = () => {
               />
             </div>
             <div className="hidden md:block">
-              <p className="text-lg font-bold">Navigation</p>
+              <p className="text-lg font-bold">Menu</p>
               <ul className="mt-5 flex flex-col gap-2 text-lg">
-                <Link href="/" className="text-[#a8a8a8] text-base">
-                  Home
-                </Link>
+                {navLinks.map((link, index) => {
+                  return (
+                    <Link
+                      key={index}
+                      href={link.href}
+                      className="text-[#a8a8a8] text-base"
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
               </ul>
             </div>
           </div>

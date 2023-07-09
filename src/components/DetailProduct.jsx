@@ -6,7 +6,7 @@ import { formatToRupiah } from "@/components/Products";
 
 const DetailProduct = (props) => {
   const sortedProducts = PRODUCTS.filter((item) => item.id === +props.id);
-  console.log(sortedProducts);
+
   return (
     <Card>
       {sortedProducts.map((product) => (

@@ -9,7 +9,7 @@ const About = () => {
         <p className="font-bold text-3xl font-merriweather leading-normal text-[#333333]">
           Tentang Kami
         </p>
-        <div className="grid grid-rows-2 md:grid-cols-2 md:grid-rows-none justify-center items-start mt-20 md:gap-10">
+        <div className="grid-rows-2 grid md:grid-cols-2 md:grid-rows-none justify-center items-start mt-20 md:gap-10">
           <div className="flex flex-col gap-10 text-justify">
             <p className="text-base">
               <span className="me-1 font-merriweather text-3xl">D</span>
@@ -31,6 +31,7 @@ const About = () => {
             alt="Dadar Gulung"
             width={800}
             height={800}
+            className="mb-10 md:mb-0"
           />
         </div>
       </div>

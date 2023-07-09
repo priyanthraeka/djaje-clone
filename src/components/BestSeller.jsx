@@ -6,7 +6,7 @@ const BestSeller = () => {
   return (
     <div className="flex justify-center items-center">
       <Card>
-        <div className="flex flex-col lg:flex-row justify-center items-center w-full gap-20">
+        <div className="flex flex-col lg:flex-row justify-center items-center w-full gap-10">
           <div className="w-[500px] flex flex-col items-center justify-center">
             <p className="font-bold text-3xl font-merriweather">Kue Basah</p>
             <p className="text-base font-merriweather">
