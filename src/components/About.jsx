@@ -31,7 +31,7 @@ const About = () => {
             alt="Dadar Gulung"
             width={800}
             height={800}
-            className="mb-10 md:mb-0"
+            className="mt-10 md:mt-0"
           />
         </div>
       </div>
