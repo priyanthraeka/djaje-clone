@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import { HiMenuAlt1, HiOutlineX } from "react-icons/hi";
+import CartModal from "./CartModal";
 
 export const navLinks = [
   {
@@ -27,10 +28,16 @@ export const navLinks = [
 const Navbar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const onClickHandler = () => {
+    setIsModalOpen(!isModalOpen);
+    setIsOpen(!isOpen);
+  };
 
   return (
     <nav className="flex justify-between items-center h-[103px] shadow-sm   shadow-slate-300 bg-white z-[999999]">
-      <div className="flex justify-center items-center w-full px-5 m-auto max-w-[1300px]">
+      <div className="flex justify-center items-center w-full px-5 m-auto max-w-[1300px] gap-5">
         <div className="w-full flex justify-between items-center">
           <Image
             src="https://djaje.com/wp-content/uploads/2021/11/cropped-logoo-2-155x52.png"
@@ -71,6 +78,20 @@ const Navbar = () => {
               </Link>
             );
           })}
+          <Link
+            className={
+              pathname.endsWith("/cart")
+                ? "text-green-500"
+                : "text-[#333333]" + " text-base hover:text-gray-500"
+            }
+            href="/cart"
+            onClick={onClickHandler}
+          >
+            Cart{" "}
+            <span className="ms-2 rounded-full px-2 bg-red-500 text-white">
+              0
+            </span>
+          </Link>
         </ul>
       </div>
     </nav>

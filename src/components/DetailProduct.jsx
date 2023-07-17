@@ -1,14 +1,31 @@
+"use client";
 import Card from "@/components/Card";
 import { PRODUCTS } from "@/components/Products";
 import Image from "next/image";
 import { BsCart2 } from "react-icons/bs";
 import { formatToRupiah } from "@/components/Products";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const DetailProduct = (props) => {
-  const sortedProducts = PRODUCTS.filter((item) => item.id === +props.id);
+  const [products, setProducts] = useState([]);
+
+  const getProducts = async () => {
+    const response = await fetch(
+      "https://djaje-clone-default-rtdb.firebaseio.com/products.json"
+    );
+    const data = await response.json();
+    setProducts(data);
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  const sortedProducts = products.filter((item) => item.id === +props.id);
+  console.log(sortedProducts);
   const getCategory = sortedProducts.map((item) => item.category);
-  const relatedProducts = PRODUCTS.filter((item) => item.id !== +props.id);
+  const relatedProducts = products.filter((item) => item.id !== +props.id);
   const sortedRelatedProducts = relatedProducts.filter((item) =>
     getCategory.includes(item.category)
   );
@@ -88,7 +105,7 @@ const DetailProduct = (props) => {
           <p className="text-2xl font-bold mb-5 font-merriweather">
             Related Products
           </p>
-          <ul className="flex flex-wrap justify-start items-start gap-5">
+          <ul className="flex flex-wrap justify-center md:justify-start items-start gap-5">
             {onlyShow.map((item) => (
               <Link
                 href={"/products/" + item.id}

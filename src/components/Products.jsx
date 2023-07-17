@@ -1,6 +1,8 @@
+"use client";
 import Link from "next/link";
 import Card from "./Card";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export function formatToRupiah(number) {
   let number_string = number.toString(),
@@ -116,6 +118,20 @@ export const PRODUCTS = [
 ];
 
 const Products = () => {
+  const [products, setProducts] = useState([]);
+
+  const getProducts = async () => {
+    const response = await fetch(
+      "https://djaje-clone-default-rtdb.firebaseio.com/products.json"
+    );
+    const data = await response.json();
+    setProducts(data);
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   return (
     <Card>
       <div className="flex flex-col items-center justify-center w-full">
@@ -124,7 +140,7 @@ const Products = () => {
         </h1>
         <div className="mt-20">
           <ul className="flex flex-wrap justify-center items-start gap-5">
-            {PRODUCTS.map((product) => (
+            {products.map((product) => (
               <Link href={"/products/" + product.id} key={product.id}>
                 <Image
                   src={product.image[0]}
