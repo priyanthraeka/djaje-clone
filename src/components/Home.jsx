@@ -2,6 +2,7 @@ import React from "react";
 import Card from "./Card";
 import Image from "next/image";
 import { BsCart2 } from "react-icons/bs";
+import Link from "next/link";
 
 const Home = () => {
   return (
@@ -36,12 +37,12 @@ const Home = () => {
             khawatir dengan bahan pengawet.
           </p>
           <div className="flex justify-center lg:justify-start">
-            <button className="py-3 px-6 rounded-full text-white bg-green-500 w-fit my-10 flex justify-center items-center gap-2 m-auto ">
-              <span>
-                <BsCart2 size={20} />
-              </span>
+            <Link
+              href="/products"
+              className="py-3 px-6 rounded-full text-white bg-green-500 w-fit my-10 flex justify-center items-center gap-2 m-auto "
+            >
               Cek Sekarang
-            </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import Card from "./Card";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import ProductsSkeleton from "./ProductsSkeleton";
 
 export function formatToRupiah(number) {
   let number_string = number.toString(),
@@ -119,6 +120,7 @@ export const PRODUCTS = [
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const [countProducts, setCounts] = useState(0);
 
   const getProducts = async () => {
     const response = await fetch(
@@ -126,11 +128,18 @@ const Products = () => {
     );
     const data = await response.json();
     setProducts(data);
+    setCounts(data.length);
   };
 
   useEffect(() => {
     getProducts();
   }, []);
+
+  const Skeleton = () => {
+    for (let i = 0; i < countProducts; i++) {
+      return <ProductsSkeleton />;
+    }
+  };
 
   return (
     <Card>
@@ -140,25 +149,39 @@ const Products = () => {
         </h1>
         <div className="mt-20">
           <ul className="flex flex-wrap justify-center items-start gap-5">
-            {products.map((product) => (
-              <Link href={"/products/" + product.id} key={product.id}>
-                <Image
-                  src={product.image[0]}
-                  alt={product.name}
-                  width={300}
-                  height={300}
-                />
-                <p className="text-sm text-slate-600 mt-1">
-                  {product.category}
-                </p>
-                <p className="text-base font-merriweather mt-2">
-                  {product.name}
-                </p>
-                <p className="text-base">
-                  {"Rp. " + formatToRupiah(product.price)}
-                </p>
-              </Link>
-            ))}
+            {products.length === 0 ? (
+              <>
+                <ProductsSkeleton />
+                <ProductsSkeleton />
+                <ProductsSkeleton />
+                <ProductsSkeleton />
+                <ProductsSkeleton />
+                <ProductsSkeleton />
+                <ProductsSkeleton />
+                <ProductsSkeleton />
+              </>
+            ) : (
+              products.map((product) => (
+                <Link href={"/products/" + product.id} key={product.id}>
+                  <Image
+                    src={product.image[0]}
+                    alt={product.name}
+                    width={300}
+                    height={300}
+                    priority
+                  />
+                  <p className="text-sm text-slate-600 mt-1">
+                    {product.category}
+                  </p>
+                  <p className="text-base font-merriweather mt-2">
+                    {product.name}
+                  </p>
+                  <p className="text-base">
+                    {"Rp. " + formatToRupiah(product.price)}
+                  </p>
+                </Link>
+              ))
+            )}
           </ul>
         </div>
       </div>

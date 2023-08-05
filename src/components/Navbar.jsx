@@ -38,14 +38,14 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between items-center h-[103px] shadow-sm   shadow-slate-300 bg-white z-[999999]">
       <div className="flex justify-center items-center w-full px-5 m-auto max-w-[1300px] gap-5">
-        <div className="w-full flex justify-between items-center">
+        <Link href={"/"} className="w-full flex justify-between items-center">
           <Image
             src="https://djaje.com/wp-content/uploads/2021/11/cropped-logoo-2-155x52.png"
             alt="Djaje Logo"
             width={155}
             height={52}
           />
-        </div>
+        </Link>
         <div
           className="md:hidden cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}

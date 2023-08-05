@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "./Card";
-import { BsFillCartFill } from "react-icons/bs";
+import { BsCart2, BsFillCartFill } from "react-icons/bs";
+import Link from "next/link";
 
 const Section = () => {
   return (
@@ -10,12 +11,15 @@ const Section = () => {
           <p className="font-merriweather text-xl lg:text-3xl font-bold">
             Diskon 10% Pembelian Paket!
           </p>
-          <button className="py-2 px-5 rounded-full text-white bg-green-500 w-fit flex justify-center items-center gap-2">
+          <Link
+            href="/products"
+            className="py-3 px-6 rounded-full text-white bg-green-500 w-fit flex justify-center items-center gap-2"
+          >
             <span>
-              <BsFillCartFill size={18} />
+              <BsCart2 size={20} />
             </span>
             Cek Sekarang
-          </button>
+          </Link>
         </div>
       </Card>
     </div>

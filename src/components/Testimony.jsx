@@ -24,10 +24,11 @@ const Testimony = () => {
           </div>
           <div className="flex flex-col lg:flex-row justify-around items-center w-full mt-20 gap-10 lg:gap-0">
             <div className="flex flex-col justify-center items-center max-w-[500px]">
-              <p className="text-lg font-bold font-merriweather">John Doe</p>
+              <p className="text-lg font-bold font-merriweather">
+                Dewa Sanjaya
+              </p>
               <p className="text-base text-center font-merriweather mt-3 mb-3">
-                &quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Cupiditate in voluptate architecto dicta?&quot;
+                &quot;Kue basahnya enak kak, bakal sering order disini.&quot;
               </p>
               <svg
                 stroke="currentColor"
@@ -43,10 +44,11 @@ const Testimony = () => {
               </svg>
             </div>
             <div className="flex flex-col justify-center items-center max-w-[500px]">
-              <p className="text-lg font-bold font-merriweather">John Doe</p>
+              <p className="text-lg font-bold font-merriweather">
+                Khrisna Yoga
+              </p>
               <p className="text-base text-center font-merriweather mt-3 mb-3">
-                &quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Cupiditate in voluptate architecto dicta?&quot;
+                &quot;Mantul jajannya uenakk&quot;
               </p>
               <svg
                 stroke="currentColor"
